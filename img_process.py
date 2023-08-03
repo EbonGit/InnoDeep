@@ -3,7 +3,8 @@ from PIL import Image
 import numpy as np
 
 def cropBorders(img, l=0.01, r=0.01, u=0.04, d=0.04):
-    nrows, ncols = img.shape
+    nrows = img.shape[0]
+    ncols = img.shape[1]
 
     # Get the start and end rows and columns
     l_crop = int(ncols * l)
@@ -133,7 +134,8 @@ def clahe(img, clip=2.0, tile=(8, 8)):
     return clahe_img
 
 def pad(img):
-    nrows, ncols = img.shape
+    nrows = img.shape[0]
+    ncols = img.shape[1]
 
     # If padding is required...
     if nrows != ncols:
