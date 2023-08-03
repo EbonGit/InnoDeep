@@ -76,7 +76,6 @@ class TumorSeeker:
         print("resize_data shape :      ", self.data.shape)
         self.data = np.expand_dims(self.data, 0)
 
-    @st.cache_resource
     def predict(self):
         # Implement the logic to make predictions using the trained tumor detection model
         self.preprocess_data()
