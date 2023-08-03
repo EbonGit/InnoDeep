@@ -14,6 +14,7 @@ from io import BytesIO
 def upload_to_cv2(upload):
     pil_img = Image.open(upload)
     img = np.array(pil_img)
+    st.echo(img.shape)
     return img
 
 
