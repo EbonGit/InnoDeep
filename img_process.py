@@ -161,7 +161,7 @@ def pad(img):
 
 def preprocess_pipeline(img):
     if len(img.shape) > 2:
-        img = img[:1]
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     image_crop = cropBorders(img, 0.01, 0.01, 0.04, 0.04)
     image_norm = minMaxNormalise(image_crop)
     mask_bin = globalBinarise(image_norm, 0.1, 1)
