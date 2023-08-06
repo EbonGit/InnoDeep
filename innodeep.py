@@ -195,6 +195,7 @@ class TumorSeeker:
         st.text(pred_label)
         st.pyplot(fig)
 
+@st.cache_resource
 def load_models():
     seeker = TumorSeeker(model_path, model_inverse_path, model_classification_path, model_ROI_path, model_ROI_type_path)
     return seeker
