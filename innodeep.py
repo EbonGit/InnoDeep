@@ -97,7 +97,6 @@ class TumorSeeker:
         # Implement the logic to save the trained tumor detection model
         self.model.save(model_path)
 
-    @st.cache_resource(max_entries=1)
     def load_model(self, model_path, model_inverse_path=None):
         # Implement the logic to load a saved tumor detection model
         self.model = keras.models.load_model(model_path, custom_objects={
@@ -108,12 +107,10 @@ class TumorSeeker:
                 'binary_cross_entropy': tf.keras.losses.BinaryCrossentropy(from_logits=False),
                 'iou': iou_metric_threshold(0.2)})
 
-    @st.cache_resource(max_entries=1)
     def load_classification(self, model_classification_path):
         self.model_classification = keras.models.load_model(model_classification_path, custom_objects={
             'categorical_crossentropy': tf.keras.losses.CategoricalCrossentropy()})
 
-    @st.cache_resource(max_entries=1)
     def load_ROI(self, model_ROI_path, model_ROI_type_path=None):
         self.model_ROI = keras.models.load_model(model_ROI_path, custom_objects={
             'binary_crossentropy': tf.keras.losses.BinaryCrossentropy()})
