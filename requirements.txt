@@ -1,6 +1,6 @@
 matplotlib==3.5.2
 numpy==1.21.5
-opencv-python-headless==4.7
+opencv-python-headless==4.7.*
 Pillow==9.2.0
 streamlit==1.22.0
 protobuf==3.19.*
