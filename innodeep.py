@@ -9,6 +9,7 @@ import numpy as np
 import tensorflow as tf
 from tensorflow import keras
 from io import BytesIO
+import psutil
 
 
 def upload_to_cv2(upload):
@@ -216,6 +217,7 @@ st.title("-INNODEEP- TUMOUR DETECTION")
 img_upload = st.file_uploader("select", type=['png', 'jpg', 'jpeg'])
 
 if img_upload:
+    st.text('RAM Used (GB):', psutil.virtual_memory()[3] / 1000000000)
     with st.spinner('Wait for it...'):
         seeker.load_data(img_upload)
         seeker.predict()
